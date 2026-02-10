@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommended Routes</title>
+  <link rel="stylesheet" href="../CSS/result.css">
+</head>
+
+<body>
+
+<video class="bg-video" autoplay muted loop>
+  <source src="/Assets/WhatsApp Video 2026-02-04 at 23.52.08.mp4" type="video/mp4">
+</video>
+
+<div class="overlay">
+
+  <h1>RECOMMENDED ROUTES</h1>
+  <p class="subtitle">Optimized based on distance, cost, and your preferences</p>
+
+  <div class="container">
+
+    <div class="card featured">
+      <div class="top-tag">BEST OPTION</div>
+      <h3></h3>
+      <div class="info">
+        <div><span>⏱</span><p></p></div>
+        <div><span>💰</span><p></p></div>
+      </div>
+      <span class="badge"></span>
+      <button>View Steps</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const user = JSON.parse(localStorage.getItem("routeData"));
+const container = document.querySelector(".container");
+const templateCard = document.querySelector(".card");
+
+const LOC = ["Railway Station","Bus Stand","City Mall","Hospital","Airport","University","Tech Park","Old Town"];
+const MODES = ["Bus","Train","Cab","Bike","Walk"];
+
+const ROUTES = [];
+
+LOC.forEach(f=>{
+  LOC.forEach(t=>{
+    if(f!==t){
+      MODES.forEach(m=>{
+        ROUTES.push({
+          from:f,
+          to:t,
+          mode:m,
+          distance:Math.floor(Math.random()*25+4)+" km",
+          time:Math.floor(Math.random()*45+10)+" mins",
+          cost:"₹"+(m==="Walk"?0:Math.floor(Math.random()*300+30)),
+          difficulty:m==="Cab"?"Easy":m==="Walk"?"Hard":"Medium",
+          walk:m==="Walk",
+          changes:(m==="Bus"||m==="Train")?Math.floor(Math.random()*3):0,
+          steps:[
+            `Start from ${f}`,
+            `Take ${m} towards ${t}`,
+            `Follow main road`,
+            `Reach ${t}`
+          ],
+          traffic:["Low","Medium","High"][Math.floor(Math.random()*3)],
+          weather:["Clear","Rainy","Foggy"][Math.floor(Math.random()*3)],
+          safety:["Safe","Crowded","Moderate"][Math.floor(Math.random()*3)]
+        });
+      });
+    }
+  });
+});
+
+templateCard.remove();
+
+const matched = ROUTES.filter(r=>{
+  if(r.from!==user.from || r.to!==user.to) return false;
+  if(user.preference!=="Include Any" && r.mode!==user.preference.split(" ")[0]) return false;
+  if(user.routeType==="walk" && r.walk) return false;
+  if(user.routeType==="change" && r.changes>1) return false;
+  return true;
+}).slice(0,6);
+
+matched.forEach((r,i)=>{
+  const card = templateCard.cloneNode(true);
+
+  if(i===0){
+    card.classList.add("featured");
+    card.insertAdjacentHTML("afterbegin",'<div class="top-tag">BEST OPTION</div>');
+  }
+
+  card.querySelector("h3").innerText = `${r.mode} Route (${r.distance})`;
+  card.querySelectorAll(".info p")[0].innerText = r.time;
+  card.querySelectorAll(".info p")[1].innerText = r.cost;
+
+  const badge = card.querySelector(".badge");
+  badge.innerText = r.difficulty;
+  badge.className = "badge "+r.difficulty.toLowerCase();
+
+  card.querySelector("button").onclick=()=>{
+    localStorage.setItem("selectedRoute",JSON.stringify(r));
+    window.location.href="guide.html";
+  };
+
+  container.appendChild(card);
+});
+</script>
+
+</body>
+</html>

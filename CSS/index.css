@@ -1,0 +1,305 @@
+/* ===================== */
+/* RESET & BASE */
+/* ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* ===================== */
+/* BACKGROUND VIDEO */
+/* ===================== */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.55) contrast(1.05);
+}
+
+/* ===================== */
+/* OVERLAY */
+/* ===================== */
+.overlay {
+  min-height: 100vh;
+  padding: 25px 50px;
+  background: linear-gradient(
+    rgba(20, 20, 20, 0.88),
+    rgba(20, 20, 20, 0.88)
+  );
+}
+
+/* ===================== */
+/* NAVBAR */
+/* ===================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(1, 91, 1);
+  border-radius: 18px;
+  padding: 15px 30px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.navbar h2 {
+  font-size: 28px;
+  color: white;
+}
+
+/* NAV LINKS */
+.nav-btns {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-left: 15px;
+  padding: 8px 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: white;
+  color: rgb(1, 91, 1);
+  transform: translateY(-2px);
+}
+
+/* ===================== */
+/* HERO SECTION */
+/* ===================== */
+.hero {
+  text-align: center;
+  margin-top: 90px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 850px;
+  margin: 15px auto 40px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* ===================== */
+/* CTA BUTTON */
+/* ===================== */
+.cta-btn {
+  padding: 16px 45px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(1, 91, 1);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+  background-color: darkgreen;
+  transform: scale(1.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+}
+
+/* ===================== */
+/* FEATURES SECTION */
+/* ===================== */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 100px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 280px;
+  padding: 25px;
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  text-align: center;
+  transition: all 0.35s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(31, 163, 31, 0.9);
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ===================== */
+/* SECTION DIVIDER */
+/* ===================== */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  margin: 120px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+/* ===================== */
+/* INFO SECTION */
+/* ===================== */
+.info-section {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  max-width: 720px;
+  margin: 0 auto 55px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* INFO GRID */
+.info-grid {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+}
+
+
+
+.info-card {
+  width: 320px;
+  padding: 32px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  text-align: left;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(31, 163, 31, 0.9);
+}
+
+.info-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.info-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.info-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+
+/* ===================== */
+/* SECONDARY CTA */
+/* ===================== */
+.secondary-cta {
+  display: inline-block;
+  margin-top: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(31, 163, 31);
+  text-decoration: none;
+  border-bottom: 2px solid rgb(31, 163, 31);
+  padding-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+.secondary-cta:hover {
+  color: white;
+  border-color: white;
+}
+
+/* ===================== */
+/* ANIMATION */
+/* ===================== */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .info-section h2 {
+    font-size: 30px;
+  }
+}

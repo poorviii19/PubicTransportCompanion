@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transport Companion</title>
+    <link rel="stylesheet" href="../CSS/route.css"/>
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay muted loop>
+        <source src="/Assets/WhatsApp Video 2026-02-04 at 23.52.08.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+
+        <h1>PLAN YOUR ROUTE</h1>
+
+        <div class="container">
+
+            <div class="card">
+                <h3>From Location</h3>
+                <p>
+                    Choose your location to get accurate, relevant results tailored to your area.
+                </p>
+                <button id="fromBtn">From Location</button>
+            </div>
+
+            <div class="card">
+                <h3>To Location</h3>
+                <p>
+                    Select your destination location to find results that match where you want to go.
+                </p>
+                <button id="toBtn">To Location</button>
+            </div>
+
+        </div>
+
+        <div class="pref">
+            <h2>Preference</h2>
+            <select id="preference">
+                <option>Train Only</option>
+                <option>Bus Only</option>
+                <option>Bike Only</option>
+                <option>Cab Only</option>
+                <option>Walk Only</option>
+                <option>Include Any</option>
+            </select>
+        </div>
+
+        <div class="rad">
+            <div>
+                <input type="radio" name="route" id="walk">
+                <label for="walk">Avoid Long Walks</label>
+            </div>
+            <div>
+                <input type="radio" name="route" id="short">
+                <label for="short">Shortest Route</label>
+            </div>
+            <div>
+                <input type="radio" name="route" id="change">
+                <label for="change">Least Changes</label>
+            </div>
+        </div>
+
+        <button class="plan">Plan Your Route</button>
+
+    </div>
+
+    
+
+   <script>
+    const locations = [
+        "Railway Station",
+        "Bus Stand",
+        "City Mall",
+        "Airport",
+        "University",
+        "Tech Park",
+        "Old Town",
+        "Hospital"
+    ];
+
+    let fromLocation = "";
+    let toLocation = "";
+
+    const fromBtn = document.getElementById("fromBtn");
+    const toBtn = document.getElementById("toBtn");
+    const planBtn = document.querySelector(".plan");
+    const preferenceSelect = document.getElementById("preference");
+    const radios = document.querySelectorAll("input[name='route']");
+
+    function createDropdown(button, callback) {
+        const select = document.createElement("select");
+
+        select.style.position = "absolute";
+        select.style.marginTop = "10px";
+
+        locations.forEach(loc => {
+            const option = document.createElement("option");
+            option.textContent = loc;
+            select.appendChild(option);
+        });
+
+        select.addEventListener("change", () => {
+            callback(select.value);
+            button.textContent = select.value;
+            select.remove();
+        });
+
+        button.parentElement.appendChild(select);
+    }
+
+    fromBtn.addEventListener("click", () => {
+        createDropdown(fromBtn, value => fromLocation = value);
+    });
+
+    toBtn.addEventListener("click", () => {
+        createDropdown(toBtn, value => toLocation = value);
+    });
+
+    planBtn.addEventListener("click", () => {
+        if (!fromLocation || !toLocation) {
+            alert("Select both From & To locations");
+            return;
+        }
+
+        let routeType = "";
+        radios.forEach(r => {
+            if (r.checked) routeType = r.id;
+        });
+
+        const data = {
+            from: fromLocation,
+            to: toLocation,
+            preference: preferenceSelect.value,
+            routeType: routeType
+        };
+
+        localStorage.setItem("routeData", JSON.stringify(data));
+        window.location.href = "result.html";
+    });
+</script>
+
+
+
+</body>
+</html>

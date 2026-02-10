@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home page</title>
+  <link rel="stylesheet" href="../CSS/index.css" />
+</head>
+<style>
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+
+.glass {
+  background: rgba(90, 88, 88, 0.35);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+
+.links {
+  display: flex;
+  gap: 30px;
+}
+
+
+.btn-route,
+.btn-home,
+.btn-tip,
+.btn-login {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-route:hover,
+.btn-home:hover,
+.btn-tip:hover,
+.btn-login:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+.hero {
+  min-height: 80vh;
+  /* padding-top: 40px; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(49, 55, 69);
+}
+
+
+.tag-line {
+  font-size: 70px;
+  max-width: 900px;
+}
+
+.tag-line1 {
+  font-size: 30px;
+  max-width: 800px;
+  margin-top: 12px;
+}
+
+/* .btn.begin{
+    align-items: ;
+} */
+
+</style>
+
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="../Assets/WhatsApp Video 2026-02-04 at 23.52.08.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Navbar -->
+  <nav class="navbar glass">
+    <h2>Public Transport Companion</h2>
+
+    <div class="links">
+      <button class="btn-route">Route</button>
+      <button class="btn-home">Home</button>
+      <button class="btn-tip">Tip</button>
+      <button class="btn-login">Sign in / Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Hero Content -->
+  <div class="hero">
+    <p class="tag-line">THE FUTURE OF MOBILITY IS HERE</p>
+    <p class="tag-line1">
+      Offering a safe, secure, and stress-free travel experience for every journey
+    </p>
+  </div>
+  <div>
+    <button class="btn-begin">Begin Your journey</button>
+  </div>
+
+</body>
+</html>

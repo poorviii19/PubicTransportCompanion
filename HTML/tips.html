@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Safety & Travel Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Background Video */
+
+    .theme-btn {
+  background-color: rgb(1, 91, 1);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bolder;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.theme-btn:hover {
+  background-color: darkgreen;
+  transform: scale(1.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  color: white;
+}
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.55) contrast(1.05);
+    }
+
+    /* Overlay */
+    .overlay {
+      min-height: 100vh;
+      background: rgba(20, 20, 20, 0.9);
+      padding: 60px 15px;
+    }
+
+    /* Glass Card – same motion as route cards */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+      border-color: rgba(31, 163, 31, 0.9);
+    }
+
+    .tip-item {
+      background-color: rgba(1, 91, 1, 0.85);
+      border-radius: 10px;
+      
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="../Assets/WhatsApp Video 2026-02-04 at 23.52.08.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay -->
+  <div class="overlay">
+
+    <div class="container text-white">
+
+      <!-- Page Heading -->
+      <div class="text-center mb-5">
+        <h1 class="fw-bold">Safety & Travel Tips</h1>
+        <p class="fs-5 opacity-75">
+          Designed to remove fear, confusion, and uncertainty while travelling
+        </p>
+      </div>
+
+      <!-- Travel Tips -->
+      <div class="glass-card p-4 mb-4">
+        <h4 class="fw-bold mb-3">🚦 Travel Tips</h4>
+
+        <div class="alert tip-item text-white d-flex align-items-center gap-3">
+          <i class="bi bi-cash-coin fs-4"></i>
+          Keep exact change ready
+        </div>
+
+        <div class="alert tip-item text-white d-flex align-items-center gap-3">
+          <i class="bi bi-clock-history fs-4"></i>
+          Avoid rush hours (8–10 AM, 6–8 PM)
+        </div>
+
+        <div class="alert tip-item text-white d-flex align-items-center gap-3">
+          <i class="bi bi-bag-check fs-4"></i>
+          Keep belongings secure
+        </div>
+      </div>
+
+      <!-- Emergency Numbers -->
+      <div class="glass-card p-4 mb-4">
+        <h4 class="fw-bold mb-3">🚨 Emergency Numbers</h4>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="glass-card p-4 text-center">
+              <i class="bi bi-shield-fill fs-1"></i>
+              <h5 class="mt-2">Police</h5>
+              <p class="fs-4 fw-bold">112</p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="glass-card p-4 text-center">
+              <i class="bi bi-heart-pulse-fill fs-1"></i>
+              <h5 class="mt-2">Ambulance</h5>
+              <p class="fs-4 fw-bold">108</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Tips -->
+      <div class="glass-card p-4 mb-5">
+        <h4 class="fw-bold mb-3">🎓 Student Tips</h4>
+
+        <div class="alert tip-item text-white d-flex align-items-center gap-3">
+          <i class="bi bi-person-badge-fill fs-4"></i>
+          Carry student ID for concessions
+        </div>
+
+        <div class="alert tip-item text-white d-flex align-items-center gap-3">
+          <i class="bi bi-ticket-perforated-fill fs-4"></i>
+          Ask for student passes at counters
+        </div>
+      </div>
+
+      <!-- Back Button -->
+      <div class="text-center">
+        <a href="index.html" class="btn theme-btn btn-lg px-5">
+  ← Back to Home
+</a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+</body>
+</html>

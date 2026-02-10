@@ -1,0 +1,153 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND VIDEO */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.55) contrast(1.05);
+}
+
+/* OVERLAY */
+.overlay {
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+  background: linear-gradient(
+    rgba(20, 20, 20, 0.88),
+    rgba(20, 20, 20, 0.88)
+  );
+}
+
+/* HEADING */
+h1 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 50px;
+}
+
+/* STEPS CONTAINER */
+.steps-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* STEP CARD */
+.step-card {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.6);
+  border-color: rgba(31, 163, 31, 0.9);
+}
+
+/* STEP HEADER */
+.step-header {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 22px 26px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* STEP CONTENT */
+.step-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 26px;
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.95;
+
+  transition:
+    max-height 0.35s ease,
+    padding 0.35s ease;
+}
+
+/* ACTIVE STATE */
+.step-card.active .step-content {
+  max-height: 120px;
+  padding: 10px 26px 24px;
+}
+
+.step-card.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* BACK BUTTON */
+.back-btn {
+  display: block;
+  width: fit-content;
+  margin: 60px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(31, 163, 31);
+  text-decoration: none;
+  border-bottom: 2px solid rgb(31, 163, 31);
+  padding-bottom: 6px;
+
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  color: white;
+  border-color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .step-header {
+    font-size: 16px;
+  }
+
+  .step-content {
+    font-size: 15px;
+  }
+}
